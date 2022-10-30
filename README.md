@@ -11,7 +11,7 @@ The Green site is vulnerable to user Enumeration in the login session, login wit
 
 Description:
 
-The Blue sit is vulnerable to sql injection, the attacker is able to make the database sleep for 5 session with the following payload attacked to the "find a sales paerson" page 
+The Blue sit is vulnerable to sql injection, the attacker is able to make the database sleep for 5 seconds with the following payload attacked to the "find a sales paerson" page 
 ' or sleep(5)='
 
 ![sql injection-blue](https://user-images.githubusercontent.com/109797939/198902946-ce5ccd7d-c91a-424d-a364-92505ea6f2e6.gif)
