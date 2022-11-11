@@ -192,7 +192,7 @@ So, copy the command from the browser page. It should start with wget and end wi
 
 Deploy Command – Ubuntu – Dionaea with HTTP
 
-wget "http://35.225.22.169/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh http://35.225.22.169 sX9hZta
+    wget "http://35.225.22.169/api/script/?text=true&script_id=2" -O deploy.sh && sudo bash deploy.sh http://35.225.22.169 sX9hZta
 
 
 Milestone 5: Attack!
@@ -208,4 +208,45 @@ Now for the fun part: let's attack the honeypot to make sure it's all working. Y
 It should show ports open...these are the services Dionaea is using to attract attackers. Switch back to the MHN Admin console in your browser, and from the top nav, choose Attacks. If everything goes well, you should see your IP address listed with several port scan records. This means the honeypot intercepted your attack.
 
 You may, however, see other attacks as well, from other IPs. In fact, it shouldn't take long at all for this to happen. Port scans should start coming in at an alarming rate, from all over the world, and even with only a single honeypot deployed, MHN will start collecting lots of data. Welcome to the hostile territory that is the Internet.
+
+<img width="508" alt="Attack-Summary" src="https://user-images.githubusercontent.com/109797939/201256130-5180811e-2440-41c3-9787-250185a82031.PNG">
+
+Encountered problems viewing the attacks report even though it was visible on the map. Had to research and restart Mnemosyne in order to make it visible but for some reason after restarting it stopped showing the attacks on the map
+
+Commands to restart Mnemosyne:
+
+    Admin@mhn-admin:~$ cd /opt/mnemosyne/cd
+    Admin@mhn-admin:~$ sudo supervisorctl restart mnemosyne
+    Admin@mhn-admin:~$ sudo supervisorctl status
+
+Map showing where attacks are coming from:
+
+<img width="804" alt="Map" src="https://user-images.githubusercontent.com/109797939/201256330-33c5cb75-78f6-44fd-b748-3dddc06b7024.PNG">
+
+
+Exporting Data
+
+The submission for this assignment will require an export of the data collected from your honeypot(s). You'll want to leave the honeypots up and running a while -- the longer the better -- and then export the data at the end of the assignment and download it to your host machine.
+
+GCP Users
+
+You can do the export directly from your local machine in two steps, so run the following commands on your local machine. 
+
+<img width="440" alt="json1" src="https://user-images.githubusercontent.com/109797939/201256412-f7f4ba37-4ebc-4eda-ba9a-a11df5cf8df9.PNG">
+
+<img width="469" alt="json2" src="https://user-images.githubusercontent.com/109797939/201256458-34e2b5c4-17e7-4485-b482-0f193898a639.PNG">
+
+The session.json file should be downloaded successfully.
+
+See session.json file within this repository.
+
+
+Cleanup
+
+When the assignment is complete, you'll most likely want to remove the VMs created as part of the honeypot network to avoid costs incurred once your trial expires.
+NOTE
+
+This project took an extensive amount of time to complete (30 hours). It could have been finished in half the time but the instructions did not address many of the problems that I encountered while doing this project.
+
+
 
